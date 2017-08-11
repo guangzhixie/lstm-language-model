@@ -178,7 +178,7 @@ class RNNLM(object):
                                                            initial_state=self.initial_h_)
 
 
-        # Softmax output layer, over vocabulary. Just compute logits_ here.
+        # Softmax output layer, over vocabulary. Compute logits_ here.
         with tf.name_scope("Output_Layer"):
             self.W_out_ = tf.Variable(tf.random_normal([self.H, self.V], -1.0, 1.0), name="W_out")
             self.b_out_ = tf.Variable(tf.zeros([self.V,], dtype=tf.float32), name="b_out")
