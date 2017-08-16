@@ -82,7 +82,7 @@ class RunEpochTester(unittest.TestCase):
         self.run_epoch = run_epoch_fn
         self.score_dataset = score_dataset_fn
 
-    def test_toy_model(self):
+    def test_simple_model(self):
         with tf.Session(graph=self.lm.graph) as sess:
             sess.run(tf.global_variables_initializer())
             bi = utils.batch_generator(self.train_ids, 5, 10)

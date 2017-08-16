@@ -174,8 +174,8 @@ def preprocess_sentences(sentences, vocab):
              for w in words]
     return np.array(vocab.words_to_ids(words))
 
-##
-# Use this function
+
+# Function to load nltk corpus by name
 def load_corpus(name, split=0.8, V=10000, shuffle=0):
     """Load a named corpus and split train/test along sentences."""
     corpus = get_corpus(name)
@@ -185,11 +185,11 @@ def load_corpus(name, split=0.8, V=10000, shuffle=0):
     test_ids = preprocess_sentences(test_sentences, vocab)
     return vocab, train_ids, test_ids
 
-##
-# Use this function
+
+# Function to generate batches
 def batch_generator(ids, batch_size, max_time):
     """Convert ids to data-matrix form."""
-    # Clip to multiple of max_time for convenience
+    # Clip to multiple of batch_size for convenience
     clip_len = ((len(ids)-1) / batch_size) * batch_size
     input_w = ids[:clip_len]     # current word
     target_y = ids[1:clip_len+1]  # next word
