@@ -88,7 +88,7 @@ def pretty_timedelta(fmt="%d:%02d:%02d", since=None, until=None):
 ##
 # Word processing functions
 def canonicalize_digits(word):
-    if not any([c.isalpha() for c in word]): return word
+    if any([c.isalpha() for c in word]): return word
     word = re.sub("\d", "DG", word)
     if word.startswith("DG"):
         word = word.replace(",", "") # remove thousands separator
